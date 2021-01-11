@@ -1,0 +1,59 @@
+import PyPDF2
+import re
+
+
+#indica o diretório onde está o romaneio de ferragem
+pdf_file = open(r'C:\Users\drigo\pythonProject2\north027.pdf', 'rb')
+
+#leitura do pdf do romaneio
+read_pdf = PyPDF2.PdfFileReader(pdf_file)
+
+#leitura da quantidade de páginas do arquivo pdf
+num_pages = read_pdf.getNumPages()
+
+#teste para uma página específica
+page = read_pdf.getPage(15)
+
+#conteúdo da página de teste
+page_content = page.extractText()
+
+#unindo o texto encontrado na página
+parsed = ''.join(page_content)
+
+#substituindo as quebras de linha do texto unido por espaçamento
+parsed = re.sub('\n', '', parsed)
+
+#variável da página teste
+pagina_teste = parsed
+
+#Início da filtragem de texto com a primeira palavra que se repete pelo romaneio 'Elemento' dos dados de interesse
+primeira_OS = pagina_teste.find("Elemento")
+#print(primeira_OS)
+
+dado_bruto = pagina_teste[primeira_OS:]
+print(dado_bruto)
+dado_splitado = dado_bruto.split('Elemento')
+
+
+indice = 0
+tamanho = len(dado_splitado)
+
+tabela_os = []
+while indice < tamanho - 1:
+
+
+    if dado_splitado[indice].find('Fecho') != -1:
+        str_final = dado_splitado[indice].find('Fecho')
+        dados = dado_splitado[indice][:str_final].split(' ')
+        dados.remove('')
+
+        tabela_os.append(dados)
+
+    indice += 1
+
+print('xxxxxxxxxxxxx')
+
+print(tabela_os[0])
+print(len(tabela_os[0]))
+"""A ideia geral é essa: dado_splitado[x].split(' ')[2])"""
+
