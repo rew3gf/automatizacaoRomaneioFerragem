@@ -1,0 +1,24 @@
+Traceback (most recent call last):
+  File "C:\Users\drigo\pythonProject2\main.py", line 12, in <module>
+    num_pages = read_pdf.getNumPages()
+  File "C:\Users\drigo\pythonProject2\venv\lib\site-packages\PyPDF2\pdf.py", line 1155, in getNumPages
+    self._flatten()
+  File "C:\Users\drigo\pythonProject2\venv\lib\site-packages\PyPDF2\pdf.py", line 1520, in _flatten
+    self._flatten(page.getObject(), inherit, **addt)
+  File "C:\Users\drigo\pythonProject2\venv\lib\site-packages\PyPDF2\generic.py", line 178, in getObject
+    return self.pdf.getObject(self).getObject()
+  File "C:\Users\drigo\pythonProject2\venv\lib\site-packages\PyPDF2\pdf.py", line 1611, in getObject
+    retval = readObject(self.stream, self)
+  File "C:\Users\drigo\pythonProject2\venv\lib\site-packages\PyPDF2\generic.py", line 66, in readObject
+    return DictionaryObject.readFromStream(stream, pdf)
+  File "C:\Users\drigo\pythonProject2\venv\lib\site-packages\PyPDF2\generic.py", line 579, in readFromStream
+    value = readObject(stream, pdf)
+  File "C:\Users\drigo\pythonProject2\venv\lib\site-packages\PyPDF2\generic.py", line 66, in readObject
+    return DictionaryObject.readFromStream(stream, pdf)
+  File "C:\Users\drigo\pythonProject2\venv\lib\site-packages\PyPDF2\generic.py", line 579, in readFromStream
+    value = readObject(stream, pdf)
+  File "C:\Users\drigo\pythonProject2\venv\lib\site-packages\PyPDF2\generic.py", line 66, in readObject
+    return DictionaryObject.readFromStream(stream, pdf)
+  File "C:\Users\drigo\pythonProject2\venv\lib\site-packages\PyPDF2\generic.py", line 584, in readFromStream
+    raise utils.PdfReadError("Multiple definitions in dictionary at byte %s for key %s" \
+PyPDF2.utils.PdfReadError: Multiple definitions in dictionary at byte 0x16758 for key /Im15
